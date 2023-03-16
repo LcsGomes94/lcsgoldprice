@@ -3,7 +3,8 @@ import z from "zod";
 
 const usdValidator = z.object({
   USDBRL: z.object({
-    low: z.string(),
+    bid: z.string(),
+    ask: z.string(),
   }),
 });
 
@@ -13,7 +14,11 @@ export function useUSD() {
     const response = await fetch(query);
     const json = await response.json();
 
-    return Number(usdValidator.parse(json).USDBRL.low);
+    const bid = Number(usdValidator.parse(json).USDBRL.bid);
+    const ask = Number(usdValidator.parse(json).USDBRL.ask);
+    const averagePrice = ask - (ask - bid) / 2;
+
+    return Number(averagePrice.toFixed(4));
   }
 
   return useQuery(["usd"], fetchUSD, {

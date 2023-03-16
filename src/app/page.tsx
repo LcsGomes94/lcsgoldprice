@@ -9,14 +9,13 @@ export default function Home() {
   const { data: usd } = useUSD();
 
   useEffect(() => {
-    setCalculatedPrice(calculatePrice(Number(goldPrice)).toString());
-    console.log(usd);
+    setCalculatedPrice(calculatePrice(Number(goldPrice)));
   }, [usd]);
 
   function handleGoldPriceChange(e: ChangeEvent<HTMLInputElement>) {
     const price = e.target.value;
     setGoldPrice(price);
-    setCalculatedPrice(calculatePrice(Number(price)).toString());
+    setCalculatedPrice(calculatePrice(Number(price)));
   }
 
   function calculatePrice(goldPrice: number) {
