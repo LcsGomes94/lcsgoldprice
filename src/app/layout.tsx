@@ -5,7 +5,7 @@ export const metadata = {
   title: "LcsGoldPrice",
   description: "Gold price per 1k in BRL after taxes from G2G and Payoneer.",
   icons: {
-    icon: "./public/favicon.png",
+    icon: "../../public/favicon.png",
   },
 };
 
