@@ -19,7 +19,7 @@ export default function Home() {
     }
 
     function calculatePrice(goldPrice: number) {
-        const salesTax = 1 - 0.0799;
+        const salesTax = 1 - 0.0899;
         const withdrawTax = 1 - 0.0098;
         const conversionTax = 1 - 0.02;
 
